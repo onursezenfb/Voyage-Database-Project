@@ -1,0 +1,45 @@
+<head>
+    <link rel="stylesheet" href="general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<div class = "main-box">
+    <div class = "up-content">
+        <div class = "title"> 
+            <p class = "main-title"> Welcome to Voyage Database System </p>
+            <p class = "little-title"> This page is for passenger insertion </p>
+        </div>
+        <div class = "title">
+            <img src="boat.webp"  class="icon">
+        </div>
+    </div>
+
+    <br>
+
+    <form action="passenger_insert.php" method="POST">
+        <div class="form-input">
+            <input type="text" id="ssn" name="ssn" placeholder="Enter Passenger SSN" required> 
+            <label for="ssn">SSN </label>
+        </div>
+        <br>
+        <div class="form-input">
+            <input type="text" id="pname" name="pname" placeholder="Enter Passenger Name" required> 
+            <label for="ssn">Name </label>
+        </div>
+        <br>
+        <div class="form-input">
+            <input type="text" id="gender" name="gender" placeholder="Enter Passenger Gender" required> 
+            <label for="ssn">Gender </label>
+        </div>
+        <br>
+        <div class="form-input">
+            <input type="text" id="age" name="age" placeholder="Enter Passenger Age" required> 
+            <label for="ssn">Age </label>
+        </div>
+        <br>
+        <input class = "pure-material-button-contained" type="submit" value="Submit"> 
+    </form> 
+</div>
+
