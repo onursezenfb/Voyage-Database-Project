@@ -1,6 +1,6 @@
 <?php
 
-include "/Applications/XAMPP/xamppfiles/htdocs/Voyage/config.php";
+include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
 // ids ne?
 if(!empty($_POST['ssn']))
 {
