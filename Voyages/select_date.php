@@ -5,7 +5,7 @@ include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
 $sdt = $_POST['sdt'];
 $ldt = $_POST['ldt'];
 
-$sql_statement = "SELECT * FROM voyages WHERE vdate <= '$sdt' AND vdate >= '$ldt'";
+$sql_statement = "SELECT * FROM voyages WHERE vdate >= '$sdt' AND vdate <= '$ldt'";
 
 $result = mysqli_query($db, $sql_statement);
 
@@ -15,7 +15,7 @@ while($row = mysqli_fetch_assoc($result)) { // Iterating the result
     $dep = $row['departure'];
     $destination = $row['destination'];
     $cid = $row['crewId'];
-    $sid = $row['shipId']
+    $sid = $row['shipId'];
     echo $voyageId . " " . $dep . " " . $destination . " " . $dt . " " . $cid . " " . $sid . "<br>";
 }
 
