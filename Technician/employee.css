@@ -1,0 +1,229 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+a,
+p,
+div{
+  font-family: Roboto,Arial;
+}
+
+.main-box {
+    width: fit-content; 
+    margin-right: auto;
+    margin-left: auto;
+    padding: 36px 56px 46px 54px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 2px rgba(10, 10, 10, 0.3);
+    background-color: white;
+}
+
+.up-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main-title{
+   font-size: 25px;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   text-align: left;
+   color: rgb(130, 130, 130);
+   margin-bottom: 0px;
+}
+
+.little-title{
+    font-size: 20px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: rgb(150, 150, 150);
+    margin-bottom: 0px;
+ }
+
+ .icon {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.form-input {
+    position: relative;
+    width: 70%;
+  }
+  
+  .form-input input::placeholder {
+    opacity: 0;
+  }
+  
+  .form-input input {
+    width: 140%;
+    height: 45px;
+    font-size: 1.2rem;
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgb(130, 130, 130);
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+
+  .field{
+    width: 100%;
+    height: 80px;
+    font-size: 1.2rem;
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgb(130, 130, 130);
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+  }
+  .form-input label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: gray;
+    letter-spacing: 1px;
+     transition: .3s;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+  }
+
+  .form-input input:focus + label,
+.form-input input:not(:placeholder-shown) + label 
+{
+  top: 0;
+  font-size: .8rem;
+  color: rgb(100,150,200);
+  background: #fff;
+  padding: 7px;
+}
+
+.form-input input:focus {
+  border: 2px solid rgb(100,150,200);
+}
+
+.pure-material-button-contained {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    padding: 0 16px;
+    min-width: 64px;
+    height: 45px;
+    vertical-align: middle;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    color: white;
+    background-color: rgb(100,150,200);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.pure-material-button-contained::-moz-focus-inner {
+    border: none;
+}
+
+/* Overlay */
+.pure-material-button-contained::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Ripple */
+.pure-material-button-contained::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    padding: 50%;
+    width: 32px; /* Safari */
+    height: 32px; /* Safari */
+    background-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 1s, transform 0.5s;
+}
+
+/* Hover, Focus */
+.pure-material-button-contained:hover,
+.pure-material-button-contained:focus {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.pure-material-button-contained:hover::before {
+    opacity: 0.08;
+}
+
+.pure-material-button-contained:focus::before {
+    opacity: 0.24;
+}
+
+.pure-material-button-contained:hover:focus::before {
+    opacity: 0.3;
+}
+
+/* Active */
+.pure-material-button-contained:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.pure-material-button-contained:active::after {
+    opacity: 0.32;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0s;
+}
+
+/* Disabled */
+.pure-material-button-contained:disabled {
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+    background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.12);
+    box-shadow: none;
+    cursor: initial;
+}
+
+.pure-material-button-contained:disabled::before {
+    opacity: 0;
+}
+
+.pure-material-button-contained:disabled::after {
+    opacity: 0;
+}

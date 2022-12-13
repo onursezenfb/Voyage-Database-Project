@@ -1,0 +1,75 @@
+<head>
+    <link rel="stylesheet" href="reservation.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<div class = "main-box">
+    <div class = "up-content">
+        <div class = "title"> 
+            <p class = "main-title"> Welcome to Voyage Database System </p>
+            <p class = "little-title"> This page is for reservation insertion </p>
+        </div>
+        <div class = "title">
+            <img src="boat.webp"  class="icon">
+        </div>
+    </div>
+
+    <br>
+
+    <form action="insert.php" method="POST">
+        <div class="form-input">
+            <input type="number" id="ssn" name="ssn" placeholder="Enter Passenger SSN" required min = 100000000 max = 999999999> 
+            <label for="ssn"> SSN </label>
+        </div>
+        <br>
+        <div class="form-input">
+            <input type="number" id="id" name="id" placeholder="Enter Voyage ID" required min = 100000000 max = 999999999> 
+            <label for="id"> Voyage ID </label>
+        </div>
+        <br>
+        <div class="form-input">
+            <input type="date" id="dt" name="dt" placeholder="Enter Problem Date" required> 
+            <label for="dt"> Date </label>
+        </div>
+        <br>
+        <div style = "display: flex; flex-direction: row; justify-content: center; align-items: center;">
+            <div class="form-input">
+                <input type="radio" id="cash" name="payment" value="Cash" required> 
+                <label for="cash"> Cash </label>
+            </div>
+            <br>
+            <div class="form-input">
+                <input type="radio" id="check" name="payment" value="Check" required> 
+                <label for="check"> Check </label>
+            </div>
+            <br>
+            <div class="form-input">
+                <input type="radio" id="creditcard" name="payment" value="Credit Card" required> 
+                <label for="creditcard"> Credit Card </label>
+            </div>
+            <br>
+        </div>
+        <br>
+        <div style = "display: flex; flex-direction: row; justify-content: center; align-items: center;">
+            <div class="form-input">
+                <input type="radio" id="single" name="room" value="Single" required> 
+                <label for="single"> Single </label>
+            </div>
+            <br>
+            <div class="form-input">
+                <input type="radio" id="double" name="room" value="Double" required> 
+                <label for="double"> Double </label>
+            </div>
+            <br>
+            <div class="form-input">
+                <input type="radio" id="suite" name="room" value="Suite" required> 
+                <label for="suite"> Suite </label>
+            </div>
+            <br>
+        </div>
+        <br>
+        <input class = "pure-material-button-contained" type="submit" value="Submit"> 
+    </form> 
+</div>

@@ -1,0 +1,61 @@
+<head>
+    <link rel="stylesheet" href="employee.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<div class = "main-box">
+    <div class = "up-content">
+        <div class = "title"> 
+            <p class = "main-title"> Welcome to Voyage Database System </p>
+            <p class = "little-title"> This page is for servant insertion </p>
+        </div>
+        <div class = "title">
+            <img src="boat.webp"  class="icon">
+        </div>
+    </div>
+
+    <br>
+
+    <form action="insert.php" method="POST">
+        <div class="form-input">
+            <input type="number" id="id" name="id" placeholder="Enter Employee ID" required min = 10000 max = 99999> 
+            <label for="id"> ID </label>
+        </div>
+        <br>
+        <div class="form-input">
+            <input type="number" id="exp" name="exp" placeholder="Enter Employee's Experience In Years" required min = 0> 
+            <label for="exp"> Experience </label>
+        </div>
+        <br>
+           <fieldset class = "field">
+                <legend style = "top: 0; font-size: 0.8rem; color: rgb(100,150,200); background: #fff; padding: 7px; font-family: Roboto, sans-serif;
+                font-weight: 600;
+                "> Type </legend>
+                <div class="form-input" style="left: 40px; background-color: transparent;">
+                    <input type="radio" id="chef" name="type" value="Chef" required> 
+                    <label for="chef" style = "background-color: transparent;"> Chef </label>
+                </div>
+                <br>
+                <div class="form-input" style = "background-color: transparent;">
+                    <input type="radio" id="w" name="type" value="Waiter/Waitress" required> 
+                    <label for="w" style = "background-color: transparent;"> Waiter/ress </label>
+                </div>
+                <br>
+                <div class="form-input" style = "background-color: transparent;">
+                    <input type="radio" id="janitor" name="type" value="Janitor" required> 
+                    <label for="janitor" style = "background-color: transparent;"> Janitor </label>
+                </div>
+                <br>
+                <div class="form-input" style = "background-color: transparent;">
+                    <input type="radio" id="room" name="type" value="Room Service" required> 
+                    <label for="room" style = "background-color: transparent;"> Room Service </label>
+                </div>
+                <br>
+           </fieldset>
+        <br>
+        <input class = "pure-material-button-contained" type="submit" value="Submit"> 
+    </form> 
+</div>
+

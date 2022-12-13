@@ -1,0 +1,32 @@
+<head>
+    <link rel="stylesheet" href="captain.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+
+<div class = "main-box">
+    <div class = "up-content">
+        <div class = "title"> 
+            <p class = "main-title"> Welcome to Voyage Database System </p>
+            <p class = "little-title"> This page is for captain selection by minimum experience </p>
+        </div>
+        <div class = "title">
+            <img src="boat.webp"  class="icon">
+        </div>
+    </div>
+
+    <br>
+
+    <form action="select_exp_bigger.php" method="POST">
+        <div class="form-input">
+            <input type="number" id="exp" name="exp" placeholder="Enter Minimum Experience" required min="0"> 
+            <label for="exp">Minimum Experience </label>
+        </div>
+        <br>
+        <input class = "pure-material-button-contained" type="submit" value="Submit"> 
+    </form> 
+</div>
+
+

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php"; 
 
@@ -10,7 +10,5 @@ $sql_statement = "INSERT INTO passengers(ssn, pname, gender, age) VALUES ($ssn,'
 
 $result = mysqli_query($db, $sql_statement);
 echo "Your result is: " . $result;
-
-
-
 ?>
+

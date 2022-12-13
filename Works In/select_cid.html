@@ -1,0 +1,30 @@
+<head>
+    <link rel="stylesheet" href="worksin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+
+<div class = "main-box">
+    <div class = "up-content">
+        <div class = "title"> 
+            <p class = "main-title"> Welcome to Voyage Database System </p>
+            <p class = "little-title"> This page is for works in selection by employee id </p>
+        </div>
+        <div class = "title">
+            <img src="boat.webp"  class="icon">
+        </div>
+    </div>
+
+    <br>
+
+    <form action="select_cid.php" method="POST">
+        <div class="form-input">
+            <input type="number" id="cid" name="cid" placeholder="Enter Crew ID" required min = 100000 max = 99999>
+            <label for="cid"> Crew ID </label>
+        </div>
+        <br>
+        <input class = "pure-material-button-contained" type="submit" value="Submit"> 
+    </form> 
+</div>
