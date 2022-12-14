@@ -11,6 +11,12 @@ $dest = $_POST['dest'];
 
 $sql_statement = "INSERT INTO voyages(voyageId, departure, destination, vDate, crewId, shipId) VALUES ('$id','$dep', '$dest', '$dt', '$cid', '$sid')";
 $result = mysqli_query($db, $sql_statement);
-echo "Your result is: " . $result;
+if($result != 1){
+    include 'fail.html';
+}
+
+else{
+    include 'success.html';
+}
 ?>
 

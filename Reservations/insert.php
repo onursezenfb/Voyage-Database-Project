@@ -10,6 +10,12 @@ $room = $_POST['room'];
 
 $sql_statement = "INSERT INTO reservations(ssn, voyageId, reservationDate, paymentMethod, roomType) VALUES ('$ssn','$id', '$dt', '$payment', '$room')";
 $result = mysqli_query($db, $sql_statement);
-echo "Your result is: " . $result;
+if($result != 1){
+    include 'fail.html';
+}
+
+else{
+    include 'success.html';
+}
 ?>
 

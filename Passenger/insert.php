@@ -9,6 +9,12 @@ $age = $_POST['age'];
 $sql_statement = "INSERT INTO passengers(ssn, pname, gender, age) VALUES ($ssn,'$pname','$gender',$age)";
 
 $result = mysqli_query($db, $sql_statement);
-echo "Your result is: " . $result;
+if($result != 1){
+    include 'fail.html';
+}
+
+else{
+    include 'success.html';
+}
 ?>
 

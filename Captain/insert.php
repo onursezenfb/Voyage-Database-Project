@@ -10,6 +10,12 @@ $crating = $_POST['crating'];
 $sql_statement = "INSERT INTO captain(captainId, name, yearsOfExperience, captainRating, gender) VALUES ('$captainid','$cname', $exp, $crating, '$gender')";
 
 $result = mysqli_query($db, $sql_statement);
-echo "Your result is: " . $result;
+if($result != 1){
+    include 'fail.html';
+}
+
+else{
+    include 'success.html';
+}
 ?>
 

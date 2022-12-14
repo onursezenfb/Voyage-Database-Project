@@ -9,6 +9,12 @@ $rating = $_POST['rating'];
 $sql_statement = "INSERT INTO ships(shipId, name, shipRating, constructionDate) VALUES ('$id','$name', $rating, $dt)";
 
 $result = mysqli_query($db, $sql_statement);
-echo "Your result is: " . $result;
+if($result != 1){
+    include 'fail.html';
+}
+
+else{
+    include 'success.html';
+}
 ?>
 

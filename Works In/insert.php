@@ -8,6 +8,12 @@ $dt = $_POST['dt'];
 $sql_statement = "INSERT INTO Works_In(employeeId, crewId, since) VALUES ('$eid','$cid','$dt')";
 
 $result = mysqli_query($db, $sql_statement);
-echo "Your result is: " . $result;
+if($result != 1){
+    include 'fail.html';
+}
+
+else{
+    include 'success.html';
+}
 ?>
 
