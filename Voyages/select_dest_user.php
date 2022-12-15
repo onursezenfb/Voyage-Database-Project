@@ -92,7 +92,10 @@ h1{
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
             // ids ne?
 
-            $sql_statement = "SELECT * FROM voyages";
+            
+            $dest = $_POST['dest'];
+
+            $sql_statement = "SELECT * FROM voyages WHERE destination = '$dest'";
 
             $result = mysqli_query($db, $sql_statement);
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result
