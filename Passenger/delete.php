@@ -6,7 +6,7 @@ include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
 $ssn = $_POST['ssn'];
 $sql_statement = "DELETE FROM passengers WHERE ssn = $ssn";
 $result = mysqli_query($db, $sql_statement);
-
+echo $result;
 if($result == 1){
     if(mysqli_affected_rows($db) >= 1){
         include 'success.html';

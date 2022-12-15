@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="captain.css">
+    <link rel="stylesheet" href="voyage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
@@ -75,15 +75,16 @@ h1{
 </head>
 <body>
     <div class = "container">
-        <h1> Captain Table </h1>
+        <h1> Voyages Table </h1>
         <table class="Table">
         <thead style = "background-color: rgb(80,105,160)">
         <tr>
-            <th> Captain ID </th>
-            <th> Captain Name </th>
-            <th> Years of Experience </th>
-            <th> Gender </th>
-            <th> Captain Rating </th>
+            <th> Voyage ID </th>
+            <th> Date</th>
+            <th> Departure </th>
+            <th> Destination </th>
+            <th> Crew ID </th>
+            <th> Ship ID </th>
         </tr>
         </thead>
         <?php
@@ -91,17 +92,17 @@ h1{
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
             // ids ne?
 
-            
-            $rating = $_POST['rating'];
-            $sql_statement = "SELECT * FROM captain WHERE captainRating >= '$rating'";
+            $sql_statement = "SELECT * FROM voyages";
+
             $result = mysqli_query($db, $sql_statement);
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result
-                $captainid = $row['captainId'];
-                $cname = $row['name'];
-                $exp = $row['yearsOfExperience'];
-                $gender = $row['gender'];
-                $rating = $row['captainRating'];
-                echo "<tbody>" . "<tr>" . "<th>" . $captainid . "</th>". "<th>" . $cname . "</th>". "<th>" . $exp . "</th>" . "<th>" . $gender . "</th>" . "<th>" . $rating . "</th>" . "</tr>" . . "</tbody>";
+                $voyageId = $row['voyageId'];
+                $dt = $row['vDate'];
+                $dep = $row['departure'];
+                $destination = $row['destination'];
+                $cid = $row['crewId'];
+                $sid = $row['shipId'];
+                echo "<tbody>" . "<tr>" . "<th>" . $voyageId . "</th>". "<th>" . $dt . "</th>". "<th>" . $dep . "</th>" . "<th>" . $destination . "</th>" . "<th>" . $cid . "</th>" . "<th>" . $sid . "</th>" . "</tr>" . "</tbody>";
             }
         ?>
         </table>
