@@ -92,7 +92,6 @@ h1{
             // ids ne?
 
             
-            $gender = $_POST['gender'];
 
             $sql_statement = "SELECT * FROM captain";
             $result = mysqli_query($db, $sql_statement);

@@ -91,7 +91,6 @@ h1{
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
             // ids ne?
 
-            $payment = $_POST['payment'];
 
             $sql_statement = "SELECT * FROM reservations";
             $result = mysqli_query($db, $sql_statement);

@@ -90,9 +90,8 @@ h1{
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
             // ids ne?
 
-            
-            $rating = $_POST['rating'];
-            $sql_statement = "SELECT * FROM ships;
+
+            $sql_statement = "SELECT * FROM ships";
             $result = mysqli_query($db, $sql_statement);
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result
                 $id = $row['shipId'];

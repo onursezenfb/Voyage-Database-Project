@@ -90,8 +90,7 @@ h1{
             // ids ne?
 
             
-            $exp = $_POST['exp'];
-            $sql_statement = "SELECT * FROM servant;
+            $sql_statement = "SELECT * FROM servant";
             $result = mysqli_query($db, $sql_statement);
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result
                 $id = $row['servantId'];

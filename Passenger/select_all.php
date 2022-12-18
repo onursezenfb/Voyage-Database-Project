@@ -89,9 +89,6 @@ h1{
 
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
             // ids ne?
-
-            $age = $_POST['age'];
-            $age2 = $_POST['age2'];
             $sql_statement = "SELECT * FROM passengers";
             $result = mysqli_query($db, $sql_statement);
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result

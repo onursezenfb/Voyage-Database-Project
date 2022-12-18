@@ -90,7 +90,6 @@ h1{
             // ids ne?
 
             
-            $cid = $_POST['cid'];
 
             $sql_statement = "SELECT * FROM Works_In";
             $result = mysqli_query($db, $sql_statement);

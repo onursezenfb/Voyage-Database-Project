@@ -88,9 +88,6 @@ h1{
         <?php
 
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
-            // ids ne?
-
-            $ssn = $_POST['ssn'];
 
             $sql_statement = "SELECT * FROM problems";
             $result = mysqli_query($db, $sql_statement);
