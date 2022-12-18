@@ -13,8 +13,6 @@ $sql_statement2 = "INSERT INTO employee(employeeId, yearsOfExperience) VALUES ('
 
 $result = mysqli_query($db, $sql_statement);
 $result2 = mysqli_query($db, $sql_statement2);
-echo "Your result is: " . $result . "<br>";
-echo "Your result is: " . $result2;
 if($result != 1){
     include 'fail.html';
 }
