@@ -184,8 +184,8 @@ CREATE TABLE `problems` (
   `problemDate` date NOT NULL,
   `problemDescription` CHAR(20) NOT NULL,
   PRIMARY KEY (`ssn`, `voyageId`),
-  FOREIGN KEY (`ssn`) REFERENCES passengers(ssn),
-  FOREIGN KEY (`voyageId`) REFERENCES voyages(voyageId)
+  FOREIGN KEY (`ssn`) REFERENCES passengers(ssn) ON DELETE CASCADE,
+  FOREIGN KEY (`voyageId`) REFERENCES voyages(voyageId) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
