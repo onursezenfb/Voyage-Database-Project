@@ -21,6 +21,25 @@ body {
 	font-weight: 100;
 }
 
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  overflow: auto;
+  height:315px;
+  margin-top:20px;
+  position: relative;
+}
+
+#table-wrapper .text{
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+
 .container {
 	position: absolute;
 	top: 50%;
@@ -42,10 +61,10 @@ td {
 	color: #fff;
 }
 
-th{
+thead,th{
+    background-color: rgb(80,105,160);
 	text-align: left;
 }
-
 
 h1{
     color: rgba(255,255,255);
@@ -74,23 +93,26 @@ h1{
     
 </head>
 <body>
-    <div class = "container">
+    <div class ="container">
         <h1> Captain Table </h1>
-        <table>
-            <thead style = "background-color: rgb(80,105,160)">
-            <tr>
+        <div id = "table-wrapper">
+        <div id = "table-scroll">
+        <table class="Table">
+        <thead style = "background-color: rgb(80,105,160)">
+        <tr>
             <th> Captain ID </th>
             <th> Captain Name </th>
             <th> Years of Experience </th>
             <th> Gender </th>
             <th> Captain Rating </th>
         </tr>
-            </thead>
+        </thead>
         <?php
 
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
             // ids ne?
 
+            
             $exp = $_POST['exp'];
             $sql_statement = "SELECT * FROM captain WHERE yearsOfExperience >= '$exp'";
             $result = mysqli_query($db, $sql_statement);
@@ -100,10 +122,12 @@ h1{
                 $exp = $row['yearsOfExperience'];
                 $gender = $row['gender'];
                 $rating = $row['captainRating'];
-                echo "<tbody>" . "<tr>" . "<td>" . $captainid . "</td>". "<td>" . $cname . "</td>". "<td>" . $exp . "</td>" . "<td>" . $gender . "</td>" . "<td>" . $rating . "</td>" . "</td>" . "</tbody>";
+                echo "<tbody>" . "<tr>" . "<td>" . $captainid . "</td>". "<td>" . $cname . "</td>". "<td>" . $exp . "</td>" . "<td>" . $gender . "</td>" . "<td>" . $rating . "</td>" . "</tr>" . "</tbody>";
             }
         ?>
         </table>
+        </div>
+        </div>
         <div style = "display: flex; flex-direction: row; margin-top: 15px">
                     <a href = "http://localhost/Voyage-Database-Project/Main Page/main_page.html">
                         <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-right: 5px;" type="submit" value="Return to Main Page">
@@ -115,3 +139,5 @@ h1{
     </div>
 </body>
 </html>
+            
+

@@ -21,6 +21,26 @@ body {
 	font-weight: 100;
 }
 
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  overflow: auto;
+  height:315px;
+  margin-top:20px;
+  position: relative;
+}
+
+#table-wrapper .text{
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+
+
 .container {
 	position: absolute;
 	top: 50%;
@@ -42,10 +62,10 @@ td {
 	color: #fff;
 }
 
-th{
+thead,th{
+    background-color: rgb(80,105,160);
 	text-align: left;
 }
-
 
 h1{
     color: rgba(255,255,255);
@@ -76,8 +96,10 @@ h1{
 <body>
     <div class = "container">
         <h1> Passenger Table </h1>
-        <table class="Table">
-        <thead style = "background-color: rgb(80,105,160)">
+        <div id = "table-wrapper">
+        <div id = "table-scroll">
+        <table class>
+        <thead style>
         <tr>
             <th> SSN </th>
             <th> Name </th>
@@ -88,8 +110,6 @@ h1{
         <?php
 
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
-            // ids ne?
-
             $age = $_POST['age'];
             $age2 = $_POST['age2'];
             $sql_statement = "SELECT * FROM passengers WHERE age >= '$age' AND age <= '$age2'";
@@ -99,10 +119,12 @@ h1{
                 $pname = $row['pname'];
                 $gender = $row['gender'];
                 $age = $row['age'];
-                echo "<tbody>" . "<tr>" . "<th>" . $ssn . "</th>". "<th>" . $pname . "</th>" . "<th>" . $gender . "</th>" . "<th>" . $age . "</th>" . "</tr>" . "</tbody>";
+                echo "<tbody>" . "<tr>" . "<td>" . $ssn . "</td>". "<td>" . $pname . "</td>" . "<td>" . $gender . "</td>" . "<td>" . $age . "</td>" . "</tr>" . "</tbody>";
             }
         ?>
         </table>
+        </div>
+        </div>
         <div style = "display: flex; flex-direction: row; margin-top: 15px">
                     <a href = "http://localhost/Voyage-Database-Project/Main Page/main_page.html">
                         <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-right: 5px;" type="submit" value="Return to Main Page">

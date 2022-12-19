@@ -21,6 +21,25 @@ body {
 	font-weight: 100;
 }
 
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  overflow: auto;
+  height:315px;
+  margin-top:20px;
+  position: relative;
+}
+
+#table-wrapper .text{
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+
 .container {
 	position: absolute;
 	top: 50%;
@@ -42,10 +61,10 @@ td {
 	color: #fff;
 }
 
-th{
+thead,th{
+    background-color: rgb(80,105,160);
 	text-align: left;
 }
-
 
 h1{
     color: rgba(255,255,255);
@@ -76,6 +95,8 @@ h1{
 <body>
     <div class ="container">
         <h1> Captain Table </h1>
+        <div id = "table-wrapper">
+        <div id = "table-scroll">
         <table class="Table">
         <thead style = "background-color: rgb(80,105,160)">
         <tr>
@@ -93,7 +114,6 @@ h1{
 
             
             $gender = $_POST['gender'];
-
             $sql_statement = "SELECT * FROM captain WHERE gender = '$gender'";
             $result = mysqli_query($db, $sql_statement);
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result
@@ -102,10 +122,12 @@ h1{
                 $exp = $row['yearsOfExperience'];
                 $gender = $row['gender'];
                 $rating = $row['captainRating'];
-                echo "<tbody>" . "<tr>" . "<th>" . $captainid . "</th>". "<th>" . $cname . "</th>". "<th>" . $exp . "</th>" . "<th>" . $gender . "</th>" . "<th>" . $rating . "</th>" . "</tr>" . "</tbody>";
+                echo "<tbody>" . "<tr>" . "<td>" . $captainid . "</td>". "<td>" . $cname . "</td>". "<td>" . $exp . "</td>" . "<td>" . $gender . "</td>" . "<td>" . $rating . "</td>" . "</tr>" . "</tbody>";
             }
         ?>
         </table>
+        </div>
+        </div>
         <div style = "display: flex; flex-direction: row; margin-top: 15px">
                     <a href = "http://localhost/Voyage-Database-Project/Main Page/main_page.html">
                         <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-right: 5px;" type="submit" value="Return to Main Page">
@@ -117,3 +139,4 @@ h1{
     </div>
 </body>
 </html>
+

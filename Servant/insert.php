@@ -9,18 +9,25 @@ $exp = $_POST['exp'];
 $type = $_POST['type'];
 
 
-$sql_statement = "INSERT INTO servant(employeeId, YearsOfExperience, servantType) VALUES ('$id', '$exp', '$type')";
+$sql_statement = "INSERT INTO servant(servantId, YearsOfExperience, servantType) VALUES ('$id', '$exp', '$type')";
 $sql_statement2 = "INSERT INTO employee(employeeId, YearsOfExperience) VALUES ('$id', '$exp')";
 
-$result = mysqli_query($db, $sql_statement);
 $result2 = mysqli_query($db, $sql_statement2);
+$result = mysqli_query($db, $sql_statement);
 
-if($result != 1){
+
+if($result2 != 1){
     include 'fail.html';
 }
 
 else{
-    include 'success.html';
+    if($result == 1){
+        include 'success.html';
+    }
+    else{
+        include 'fail.html';
+    }
+    
 }
 ?>
 

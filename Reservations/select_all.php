@@ -21,6 +21,25 @@ body {
 	font-weight: 100;
 }
 
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  overflow: auto;
+  height:315px;
+  margin-top:20px;
+  position: relative;
+}
+
+#table-wrapper .text{
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+
 .container {
 	position: absolute;
 	top: 50%;
@@ -42,9 +61,11 @@ td {
 	color: #fff;
 }
 
-th{
+thead,th{
+    background-color: rgb(80,105,160);
 	text-align: left;
 }
+
 
 
 h1{
@@ -76,6 +97,8 @@ h1{
 <body>
     <div class = "container">
         <h1> Reservations Table </h1>
+        <div id = "table-wrapper">
+        <div id = "table-scroll">
         <table class="Table">
         <thead style = "background-color: rgb(80,105,160)">
         <tr>
@@ -100,10 +123,12 @@ h1{
                 $dt = $row['reservationDate'];
                 $payment = $row['paymentMethod'];
                 $room = $row['roomType'];
-                echo "<tbody>" . "<tr>" . "<th>" . $ssn . "</th>". "<th>" . $voyageId . "</th>" . "<th>" . $dt . "</th>" . "<th>" . $payment . "</th>" . "<th>" . $room . "</th>" . "</tr>" . "</tbody>";
+                echo "<tbody>" . "<tr>" . "<td>" . $ssn . "</td>". "<td>" . $voyageId . "</td>" . "<td>" . $dt . "</td>" . "<td>" . $payment . "</td>" . "<td>" . $room . "</td>" . "</tr>" . "</tbody>";
             }
         ?>
         </table>
+        </div>
+        </div>
         <div style = "display: flex; flex-direction: row; margin-top: 15px">
                     <a href = "http://localhost/Voyage-Database-Project/Main Page/main_page.html">
                         <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-right: 5px;" type="submit" value="Return to Main Page">

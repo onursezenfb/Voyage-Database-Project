@@ -28,6 +28,25 @@ body {
 	transform: translate(-50%, -50%);
 }
 
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  overflow: auto;
+  height:315px;
+  margin-top:20px;
+  position: relative;
+}
+
+#table-wrapper .text{
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+
 table {
 	width: 800px;
 	border-collapse: collapse;
@@ -42,10 +61,10 @@ td {
 	color: #fff;
 }
 
-th{
+thead,th{
+    background-color: rgb(80,105,160);
 	text-align: left;
 }
-
 
 h1{
     color: rgba(255,255,255);
@@ -76,6 +95,8 @@ h1{
 <body>
     <div class = "container">
         <h1> Voyages Table </h1>
+        <div id = "table-wrapper">
+        <div id = "table-scroll">
         <table class="Table">
         <thead style = "background-color: rgb(80,105,160)">
         <tr>
@@ -102,16 +123,18 @@ h1{
                 $destination = $row['destination'];
                 $cid = $row['crewId'];
                 $sid = $row['shipId'];
-                echo "<tbody>" . "<tr>" . "<th>" . $voyageId . "</th>". "<th>" . $dt . "</th>". "<th>" . $dep . "</th>" . "<th>" . $destination . "</th>" . "<th>" . $cid . "</th>" . "<th>" . $sid . "</th>" . "</tr>" . "</tbody>";
+                echo "<tbody>" . "<tr>" . "<td>" . $voyageId . "</td>". "<td>" . $dt . "</td>". "<td>" . $dep . "</td>" . "<td>" . $destination . "</td>" . "<td>" . $cid . "</td>" . "<td>" . $sid . "</td>" . "</tr>" . "</tbody>";
             }
         ?>
         </table>
+        </div>
+        </div>
         <div style = "display: flex; flex-direction: row; margin-top: 15px">
                     <a href = "http://localhost/Voyage-Database-Project/Main Page/main_page.html">
                         <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-right: 5px;" type="submit" value="Return to Main Page">
                     </a>
                     <a href = "http://localhost/Voyage-Database-Project/Main Page/admin_panel.html">
-                        <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-left: 5px;" type="submit" value="Return to User Page">
+                        <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-left: 5px;" type="submit" value="Return to Admin Panel">
                     </a>
         </div>
     </div>

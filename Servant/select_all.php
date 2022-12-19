@@ -27,6 +27,25 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  overflow: auto;
+  height:315px;
+  margin-top:20px;
+  position: relative;
+}
+
+#table-wrapper .text{
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+
 
 table {
 	width: 800px;
@@ -42,10 +61,11 @@ td {
 	color: #fff;
 }
 
-th{
+
+thead,th{
+    background-color: rgb(80,105,160);
 	text-align: left;
 }
-
 
 h1{
     color: rgba(255,255,255);
@@ -76,6 +96,8 @@ h1{
 <body>
     <div class = "container">
         <h1> Servant Table </h1>
+        <div id = "table-wrapper">
+        <div id = "table-scroll">
         <table class="Table">
         <thead style = "background-color: rgb(80,105,160)">
         <tr>
@@ -96,10 +118,12 @@ h1{
                 $id = $row['servantId'];
                 $exp = $row['YearsOfExperience'];
                 $type = $row['servantType'];
-                echo "<tbody>" . "<tr>" . "<th>" . $id . "</th>". "<th>" . $exp . "</th>". "<th>" . $type . "</th>" . "</tr>" . "</tbody>";
+                echo "<tbody>" . "<tr>" . "<td>" . $id . "</td>". "<td>" . $exp . "</td>". "<td>" . $type . "</td>" . "</tr>" . "</tbody>";
             }
         ?>
         </table>
+        </div>
+        </div>
         <div style = "display: flex; flex-direction: row; margin-top: 15px">
                     <a href = "http://localhost/Voyage-Database-Project/Main Page/main_page.html">
                         <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-right: 5px;" type="submit" value="Return to Main Page">

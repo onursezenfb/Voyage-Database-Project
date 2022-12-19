@@ -11,14 +11,21 @@ $type = $_POST['type'];
 $sql_statement = "INSERT INTO technician(technicianId, YearsOfExperience, machine) VALUES ('$id', '$exp', '$type')";
 $sql_statement2 = "INSERT INTO employee(employeeId, YearsOfExperience) VALUES ('$id', '$exp')";
 
-$result = mysqli_query($db, $sql_statement);
 $result2 = mysqli_query($db, $sql_statement2);
-if($result != 1){
+$result = mysqli_query($db, $sql_statement);
+
+if($result2 != 1){
     include 'fail.html';
 }
 
 else{
-    include 'success.html';
+    if($result == 1){
+        include 'success.html';
+    }
+    else{
+        include 'fail.html';
+    }
+    
 }
 ?>
 

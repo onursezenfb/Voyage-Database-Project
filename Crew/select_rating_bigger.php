@@ -20,6 +20,24 @@ body {
 	font-family: Roboto, sans-serif;
 	font-weight: 100;
 }
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  overflow: auto;
+  height:315px;
+  margin-top:20px;
+  position: relative;
+}
+
+#table-wrapper .text{
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
 
 .container {
 	position: absolute;
@@ -41,7 +59,10 @@ td {
 	background-color: rgba(255,255,255,0.2);
 	color: #fff;
 }
-
+thead,th{
+    background-color: rgb(80,105,160);
+	text-align: left;
+}
 th{
 	text-align: left;
 }
@@ -76,6 +97,8 @@ h1{
 <body>
     <div class = "container">
         <h1> Crew Table </h1>
+        <div id = "table-wrapper">
+        <div id = "table-scroll">
         <table class="Table">
         <thead style = "background-color: rgb(80,105,160)">
         <tr>
@@ -90,6 +113,7 @@ h1{
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
             // ids ne?
 
+
             $rating = $_POST['rating'];
             $sql_statement = "SELECT * FROM crew WHERE crewRating >= $rating";
             $result = mysqli_query($db, $sql_statement);
@@ -98,10 +122,12 @@ h1{
                 $num = $row['numberOfEmployees'];
                 $crating = $row['crewRating'];
                 $captainId = $row['captainId'];
-                echo "<tbody>" . "<tr>" . "<th>" . $crewid . "</th>". "<th>" . $num . "</th>". "<th>" . $crating . "</th>" . "<th>" . $captainId . "</th>" . "</tr>" . "</tbody>";
+                echo "<tbody>" . "<tr>" . "<td>" . $crewid . "</td>". "<td>" . $num . "</td>". "<td>" . $crating . "</td>" . "<td>" . $captainId . "</td>" . "</tr>" . "</tbody>";
             }
         ?>
         </table>
+        </div>
+        </div>
         <div style = "display: flex; flex-direction: row; margin-top: 15px">
                     <a href = "http://localhost/Voyage-Database-Project/Main Page/main_page.html">
                         <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-right: 5px;" type="submit" value="Return to Main Page">
@@ -110,6 +136,5 @@ h1{
                         <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-left: 5px;" type="submit" value="Return to Admin Panel">
                     </a>
         </div>
-    </div>
 </body>
 </html>

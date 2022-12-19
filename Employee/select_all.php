@@ -21,6 +21,33 @@ body {
 	font-weight: 100;
 }
 
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  overflow: auto;
+  height:315px;
+  margin-top:20px;
+  position: relative;
+}
+
+#table-wrapper .text{
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+
+
+table {
+    position: relative;
+	width: 800px;
+	border-collapse: collapse;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    overflow-x: hidden; 
+}
 .container {
 	position: absolute;
 	top: 50%;
@@ -28,12 +55,7 @@ body {
 	transform: translate(-50%, -50%);
 }
 
-table {
-	width: 800px;
-	border-collapse: collapse;
-	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
+
 
 th,
 td {
@@ -42,9 +64,12 @@ td {
 	color: #fff;
 }
 
-th{
+thead,th{
+    background-color: rgb(80,105,160);
 	text-align: left;
 }
+
+
 
 
 h1{
@@ -76,8 +101,10 @@ h1{
 <body>
     <div class = "container">
         <h1> Employee Table </h1>
-        <table class="Table">
-        <thead style = "background-color: rgb(80,105,160)">
+        <div id = "table-wrapper">
+        <div id = "table-scroll">
+        <table>
+        <thead>
         <tr>
             <th> Employee ID </th>
             <th> Years of Experience </th>
@@ -93,10 +120,13 @@ h1{
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result
                 $id = $row['employeeId'];
                 $exp = $row['YearsOfExperience'];
-                echo "<tbody>" . "<tr>" . "<th>" . $id . "</th>". "<th>" . $exp . "</th>". "</tr>" . "</tbody>";
+                echo "<tbody>" . "<tr>" . "<td>" . $id . "</td>". "<td>" . $exp . "</td>". "</tr>" . "</tbody>";
             }
         ?>
         </table>
+        
+        </div>
+        </div>
         <div style = "display: flex; flex-direction: row; margin-top: 15px">
                     <a href = "http://localhost/Voyage-Database-Project/Main Page/main_page.html">
                         <input class = "pure-material-button-contained" style = "background-color: rgb(80,105,160); margin-bottom: 15px; margin-right: 5px;" type="submit" value="Return to Main Page">
