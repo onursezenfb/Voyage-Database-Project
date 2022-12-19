@@ -92,7 +92,7 @@ h1{
             $result = mysqli_query($db, $sql_statement);
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result
                 $id = $row['employeeId'];
-                $exp = $row['yearsOfExperience'];
+                $exp = $row['YearsOfExperience'];
                 echo "<tbody>" . "<tr>" . "<th>" . $id . "</th>". "<th>" . $exp . "</th>". "</tr>" . "</tbody>";
             }
         ?>

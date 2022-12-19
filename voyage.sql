@@ -35,7 +35,7 @@ CREATE TABLE `passengers` (
 
 LOCK TABLES `passengers` WRITE;
 /*!40000 ALTER TABLE `passengers` DISABLE KEYS */;
-INSERT INTO `passengers` VALUES (576419853,'John Nash','Male',32),(224899573,'David Beckham','Male',47),(450927222,'Marie Curie','Female',44),(387441450,'James Franco','Male',44),(232881403,'Amy Winehouse','Female',39);
+INSERT INTO `passengers` VALUES (576419853,'John Nash','Male',32),(224899573,'David Beckham','Male',47),(450927222,'Marie Curie','Female',44),(387441450,'James Franco','Male',44),(232881403,'Amy Winehouse','Female',39),(512448329,'Brad Pitt','Male',59),(729123580,'Sandra Bullock','Female', 58);
 /*!40000 ALTER TABLE `passengers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +60,7 @@ CREATE TABLE `captain` (
 
 LOCK TABLES `captain` WRITE;
 /*!40000 ALTER TABLE `captain` DISABLE KEYS */;
-INSERT INTO `captain` VALUES (1248128, 'Jack Sparrow', 20, 10, 'male'),(29486, 'Ozan Celebi', 2, 7, 'male'), (29527, 'Onur Sezen', 2, 8, 'male');
+INSERT INTO `captain` VALUES (12481, 'Jack Sparrow', 20, 10, 'Male'),(29486, 'Ozan Celebi', 2, 7, 'Male'), (29527, 'Onur Sezen', 2, 8, 'Male'),(82178, 'Barbaros Hayreddin', 34, 9, 'Male'), (93127, 'Anna Shchetinina', 12, 7, 'Female');
 /*!40000 ALTER TABLE `captain` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +86,7 @@ CREATE TABLE `crew` (
 
 LOCK TABLES `crew` WRITE;
 /*!40000 ALTER TABLE `crew` DISABLE KEYS */;
-INSERT INTO `crew` VALUES (473829, 25, 8, 29486),(214885, 12, 3, 29527), (00002, 78, 7, 1248128);
+INSERT INTO `crew` VALUES (47382, 4, 8, 29486),(21488, 3, 3, 29527), (10002, 5, 7, 12481), (81221, 5, 8, 82178), (12467, 7, 5, 93127);
 /*!40000 ALTER TABLE `crew` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +108,7 @@ CREATE TABLE `ships` (
 
 LOCK TABLES `ships` WRITE;
 /*!40000 ALTER TABLE `ships` DISABLE KEYS */;
-INSERT INTO `ships` VALUES (9358217, 'Gezgin', 6, '2002-05-20'),(5827879, 'Yorgun', 7,'2019-03-05'), (00001, 'The Black Pearl', 10, '1650-04-01');
+INSERT INTO `ships` VALUES (93582, 'Gezgin', 6, '2002-05-20'),(58278, 'Yorgun', 7,'2019-03-05'), (10001, 'The Black Pearl', 10, '1650-04-01'), (21455, 'Sea Shark', 9, '2021-07-12'), (12747, 'Bird', 5, '2010-08-08');
 /*!40000 ALTER TABLE `ships` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,7 +139,7 @@ CREATE TABLE `voyages` (
 
 LOCK TABLES `voyages` WRITE;
 /*!40000 ALTER TABLE `voyages` DISABLE KEYS */;
-INSERT INTO `voyages` VALUES (123456789, 'Izmir', 'Istanbul', '2022-11-10', 214885, 5827879), (1020304050, 'London', 'New York', '2023-01-20', 473829, 9358217), (0918273645, 'Haiti', 'Caribbean', '1722-02-01', 00002, 00001);
+INSERT INTO `voyages` VALUES (12345, 'Izmir', 'Istanbul', '2022-11-10', 21488, 58278), (10203, 'London', 'New York', '2023-01-20', 47382, 93582), (49182, 'Samsun', 'Istanbul', '2021-05-10', 81221, 12747), (12346, 'Izmir', 'Antalya', '2023-09-03', 12467, 21455), (19182, 'Haiti', 'Caribbean', '1722-02-01', 10002, 10001);
 /*!40000 ALTER TABLE `voyages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,7 +157,6 @@ CREATE TABLE `reservations` (
   `reservationDate` date NOT NULL,
   `paymentMethod` CHAR(20) NOT NULL,
   `roomType` CHAR(20) NOT NULL,
-
   PRIMARY KEY (`ssn`, `voyageId`),
   FOREIGN KEY (`ssn`) REFERENCES passengers(ssn) ON DELETE CASCADE,
   FOREIGN KEY (`voyageId`) REFERENCES voyages(voyageId) ON DELETE CASCADE
@@ -168,13 +167,11 @@ CREATE TABLE `reservations` (
 --
 -- Dumping data for table `reservations`
 --
-
 LOCK TABLES `reservations` WRITE;
 /*!40000 ALTER TABLE `reservations` DISABLE KEYS */;
-INSERT INTO `reservations` VALUES (224899573, 1020304050, '2023-01-14', 'check', 'deluxe'),(450927222, 0918273645, '2022-11-03', 'cash', 'standard');
+INSERT INTO `reservations` VALUES (224899573, 10203, '2023-01-14', 'Check', 'Suite'),(450927222, 49182, '2021-05-03', 'Cash', 'Single'), (387441450, 12345, '2022-10-10', 'Credit Card', 'Double'), (729123580, 12346, '2023-02-25', 'Credit Card', 'Single'), (576419853, 49182, '2021-04-12', 'Cash', 'Single'), (232881403, 49182, '2021-03-23', 'Cash', 'Double'),(512448329, 19182, '1722-02-01', 'Cash', 'Suite');
 /*!40000 ALTER TABLE `reservations` ENABLE KEYS */;
 UNLOCK TABLES;
-
 
 
 
@@ -199,7 +196,7 @@ CREATE TABLE `problems` (
 
 LOCK TABLES `problems` WRITE;
 /*!40000 ALTER TABLE `problems` DISABLE KEYS */;
-INSERT INTO `problems` VALUES (224899573, 1020304050, '2023-02-14', 'noise'),(450927222, 0918273645, '2022-12-10', 'food quality');
+INSERT INTO `problems` VALUES (224899573, 10203, '2023-02-14', 'noise'),(450927222, 19182, '2022-12-10', 'food quality');
 /*!40000 ALTER TABLE `problems` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,7 +209,7 @@ DROP TABLE IF EXISTS `employee`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `employee` (
   `employeeId` int(10) NOT NULL AUTO_INCREMENT,
-  `yearsOfExperience` int(10) NOT NULL,
+  `YearsOfExperience` int(10) NOT NULL,
   PRIMARY KEY (`employeeId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -224,7 +221,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (152376, 4),(13532, 6), (121562, 34);
+INSERT INTO `employee` VALUES (15237, 4), (13532, 6), (12156, 34), (15238, 12), (13533, 8), (12157, 20), (15239, 10), (13534, 18), (12158, 2), (15240, 6), (13535, 1), (12159, 12), (15241, 7), (13536, 12), (12160, 1), (15242, 17), (13537, 13), (12161, 5), (15243, 11), (13538, 3), (12162, 7), (15244, 13), (13539, 23), (12163, 5);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,7 +231,7 @@ DROP TABLE IF EXISTS `servant`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `servant` (
   `servantId` int(10) REFERENCES employee(employeeId) ON DELETE CASCADE,
-  `YearsOfExperience` int(10) NOT NULL REFERENCES employee(yearsOfExperience),
+  `YearsOfExperience` int(10) NOT NULL REFERENCES employee(YearsOfExperience),
   `servantType` char(20) NOT NULL,
   PRIMARY KEY (`servantId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
@@ -246,14 +243,14 @@ CREATE TABLE `servant` (
 --
 
 insert into servant(servantId,YearsOfExperience,servantType)
-values(313131, 31, 'chef');
+values(15237, 4, 'Chef'), (12156, 34, 'Janitor'), (15238, 12, 'Waiter/ress'), (13532, 6, 'Room Service');
 
 DROP TABLE IF EXISTS `technician`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `technician` (
   `technicianId` int(10) REFERENCES employee(employeeId) ON DELETE CASCADE,
-  `YearsOfExperience` int(10) NOT NULL REFERENCES employee(yearsOfExperience),
+  `YearsOfExperience` int(10) NOT NULL REFERENCES employee(YearsOfExperience),
   `machine` char(20) NOT NULL,
   PRIMARY KEY (`technicianId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
@@ -265,7 +262,7 @@ CREATE TABLE `technician` (
 --
 
 insert into technician(technicianId,YearsOfExperience,machine)
-values(3000, 15, 'mark II');
+values (15242, 17, 'Engine'), (13537, 13, 'Vacuum Chamber'), (12161, 5, 'Antenna'), (15243, 11, 'Engine');
 
 
 DROP TABLE IF EXISTS `Works_In`;
@@ -288,7 +285,6 @@ CREATE TABLE `Works_In` (
 
 LOCK TABLES `Works_In` WRITE;
 /*!40000 ALTER TABLE `Works_In` DISABLE KEYS */;
-INSERT INTO `Works_In` VALUES (152376, 473829, '2022-08-16'),(121562, 214885, '2022-12-11'), (13532, 00002, '1720-05-09');
+INSERT INTO `Works_In` VALUES (15237, 47382, '2023-01-20'), (13532, 47382, '2023-01-20'), (12156, 47382, '2023-01-20'), (15238, 47382, '2023-01-20'), (13533, 21488, '2022-11-10'), (12157, 21488, '2022-11-10'), (15239, 21488, '2022-11-10'), (13534, 10002, '1722-02-01'), (12158, 10002, '1722-02-01'), (15240, 10002, '1722-02-01'), (13535, 10002, '1722-02-01'), (12159, 10002, '1722-02-01'), (15241, 81221,'2021-05-10'), (13536, 81221, '2021-05-10'), (12160, 81221, '2021-05-10'), (15242, 81221, '2021-05-10'), (13537, 81221, '2021-05-10'), (12161, 12467, '2023-09-03'), (15243, 12467, '2023-09-03'), (13538, 12467, '2023-09-03'), (12162, 12467, '2023-09-03'), (15244, 12467, '2023-09-03'), (13539, 12467, '2023-09-03'), (12163, 12467, '2023-09-03');
 /*!40000 ALTER TABLE `Works_In` ENABLE KEYS */;
 UNLOCK TABLES;
-
