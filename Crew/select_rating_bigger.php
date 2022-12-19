@@ -119,7 +119,9 @@ h1{
             $result = mysqli_query($db, $sql_statement);
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result
                 $crewid = $row['crewId'];
-                $num = $row['numberOfEmployees'];
+                $result2 = $db->query("SELECT COUNT(*) FROM Works_In WHERE crewId = '$crewid'");
+                $nums = $result2->fetch_row();
+                $num = $nums[0];
                 $crating = $row['crewRating'];
                 $captainId = $row['captainId'];
                 echo "<tbody>" . "<tr>" . "<td>" . $crewid . "</td>". "<td>" . $num . "</td>". "<td>" . $crating . "</td>" . "<td>" . $captainId . "</td>" . "</tr>" . "</tbody>";

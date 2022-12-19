@@ -112,13 +112,14 @@ h1{
 
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
             // ids ne?
-
-
+   
             $sql_statement = "SELECT * FROM crew";
             $result = mysqli_query($db, $sql_statement);
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result
                 $crewid = $row['crewId'];
-                $num = $row['numberOfEmployees'];
+                $result2 = $db->query("SELECT COUNT(*) FROM Works_In WHERE crewId = '$crewid'");
+                $nums = $result2->fetch_row();
+                $num = $nums[0];
                 $crating = $row['crewRating'];
                 $captainId = $row['captainId'];
                 echo "<tbody>" . "<tr>" . "<td>" . $crewid . "</td>". "<td>" . $num . "</td>". "<td>" . $crating . "</td>" . "<td>" . $captainId . "</td>" . "</tr>" . "</tbody>";
