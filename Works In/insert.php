@@ -12,6 +12,7 @@ if($result != 1){
 }
 
 else{
+    $db->query("UPDATE crew SET numberOfEmployees = numberOfEmployees + 1 WHERE crewId = '$cid'");
     include 'success.html';
 }
 ?>

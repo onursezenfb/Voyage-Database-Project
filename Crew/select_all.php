@@ -120,6 +120,7 @@ h1{
                 $result2 = $db->query("SELECT COUNT(*) FROM Works_In WHERE crewId = '$crewid'");
                 $nums = $result2->fetch_row();
                 $num = $nums[0];
+                $db->query("UPDATE crew SET numberOfEmployees = $num WHERE crewId = '$crewid'");
                 $crating = $row['crewRating'];
                 $captainId = $row['captainId'];
                 echo "<tbody>" . "<tr>" . "<td>" . $crewid . "</td>". "<td>" . $num . "</td>". "<td>" . $crating . "</td>" . "<td>" . $captainId . "</td>" . "</tr>" . "</tbody>";
