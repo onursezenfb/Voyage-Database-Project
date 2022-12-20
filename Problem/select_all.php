@@ -95,8 +95,8 @@ h1{
         <h1> Problem Table </h1>
         <div id = "table-wrapper">
         <div id = "table-scroll">
-        <table class="Table">
-        <thead style = "background-color: rgb(80,105,160)">
+        <table>
+        <thead>
         <tr>
             <th> SSN </th>
             <th> Voyage ID </th>

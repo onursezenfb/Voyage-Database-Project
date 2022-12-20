@@ -196,7 +196,7 @@ CREATE TABLE `problems` (
 
 LOCK TABLES `problems` WRITE;
 /*!40000 ALTER TABLE `problems` DISABLE KEYS */;
-INSERT INTO `problems` VALUES (224899573, 10203, '2023-02-14', 'noise'),(450927222, 19182, '2022-12-10', 'food quality');
+INSERT INTO `problems` VALUES (224899573, 10203, '2023-02-14', 'noise'),(450927222, 19182, '2022-12-10', 'food quality'), (387441450, 19182, '2022-12-11', 'rude captain');
 /*!40000 ALTER TABLE `problems` ENABLE KEYS */;
 UNLOCK TABLES;
 
