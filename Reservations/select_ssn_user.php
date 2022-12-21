@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="voyage.css">
+    <link rel="stylesheet" href="reservation.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
@@ -19,13 +19,6 @@ body {
 	background: linear-gradient(45deg, #4ca1af, #c4e0e5);
 	font-family: Roboto, sans-serif;
 	font-weight: 100;
-}
-
-.container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 
 #table-wrapper {
@@ -47,6 +40,13 @@ body {
   border:1px solid red;
 }
 
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 table {
 	width: 800px;
 	border-collapse: collapse;
@@ -65,6 +65,8 @@ thead,th{
     background-color: rgb(80,105,160);
 	text-align: left;
 }
+
+
 
 h1{
     color: rgba(255,255,255);
@@ -94,18 +96,17 @@ h1{
 </head>
 <body>
     <div class = "container">
-        <h1> Voyages Table </h1>
+        <h1> Reservations Table </h1>
         <div id = "table-wrapper">
         <div id = "table-scroll">
         <table class="Table">
         <thead style = "background-color: rgb(80,105,160)">
         <tr>
+            <th> SSN </th>
             <th> Voyage ID </th>
-            <th> Date</th>
-            <th> Departure </th>
-            <th> Destination </th>
-            <th> Crew ID </th>
-            <th> Ship ID </th>
+            <th> Date </th>
+            <th> Payment Method </th>
+            <th> Room Type </th>
         </tr>
         </thead>
         <?php
@@ -113,19 +114,17 @@ h1{
             include "/Applications/XAMPP/htdocs/Voyage-Database-Project/config.php";
             // ids ne?
 
-            $dest = $_POST['dest'];
+            $ssn = $_POST['ssn'];
 
-            $sql_statement = "SELECT * FROM voyages WHERE destination = '$dest'";
-
+            $sql_statement = "SELECT * FROM reservations WHERE ssn = '$ssn'";
             $result = mysqli_query($db, $sql_statement);
             while($row = mysqli_fetch_assoc($result)) { // Iterating the result
+                $ssn = $row['ssn'];
                 $voyageId = $row['voyageId'];
-                $dt = $row['vDate'];
-                $dep = $row['departure'];
-                $destination = $row['destination'];
-                $cid = $row['crewId'];
-                $sid = $row['shipId'];
-                echo "<tbody>" . "<tr>" . "<td>" . $voyageId . "</td>". "<td>" . $dt . "</td>". "<td>" . $dep . "</td>" . "<td>" . $destination . "</td>" . "<td>" . $cid . "</td>" . "<td>" . $sid . "</td>" . "</tr>" . "</tbody>";
+                $dt = $row['reservationDate'];
+                $payment = $row['paymentMethod'];
+                $room = $row['roomType'];
+                echo "<tbody>" . "<tr>" . "<td>" . $ssn . "</td>". "<td>" . $voyageId . "</td>" . "<td>" . $dt . "</td>" . "<td>" . $payment . "</td>" . "<td>" . $room . "</td>" . "</tr>" . "</tbody>";
             }
         ?>
         </table>
