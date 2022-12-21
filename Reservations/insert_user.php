@@ -31,6 +31,9 @@ else{
 
         $result2 = mysqli_query($db, $sql_statement2);
     }
+    else{
+        $sql_statement3 = "UPDATE passengers SET age = $age WHERE ssn = $ssn";
+    }
     
     if($result2 == 1){
         include 'success_user.html';
