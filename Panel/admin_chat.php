@@ -3,7 +3,7 @@
 	//You need to change this with your RealtimeDB url and add 'collection_name.json' to the end
 	//In my case, my collection name is 'messages'
 	//the resulting url is given below
-    $URL = "https://cs306-phase5-default-rtdb.europe-west1.firebasedatabase.app/messages.json";
+    $URL = "https://voyage-database-project-default-rtdb.firebaseio.com/messages.json";
 
     function get_messages() { 
         global $URL;
@@ -28,7 +28,9 @@
 </head>
 
 <div class="menu">
-<div class="back"><i class="fa fa-chevron-left"></i> <img src="https://i.imgur.com/DY6gND0.png" draggable="false"/></div>
+<div class="back">
+	<a class="fa fa-chevron-left" href = "http://localhost/Voyage-Database-Project/Main Page/admin_panel.html"></a> <img src="https://i.imgur.com/DY6gND0.png" draggable="false"/>
+</div>
 <div class="name">Support</div>
 <div class="last"><?=date("H.i")?></div>
 </div>
@@ -65,7 +67,7 @@
 	}
 ?>
 </ol>
-<form name="form" action = "send_message_admin.php?sender=admin" method="POST">
+<form name="form" action = "send_message.php?sender=admin" method="POST">
     <input name="usermsg" class="textarea" type="text" placeholder="Type here!"/>
     <input type="submit" style="display: none" />
 </form>

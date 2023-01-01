@@ -12,7 +12,7 @@
 	
 	//Provide your firebase realtime db url, make sure you add your collection name 
 	// with '.json' at the end for using Firebase API
-    $URL = "https://cs306-phase5-default-rtdb.europe-west1.firebasedatabase.app/messages.json";
+    $URL = "https://voyage-database-project-default-rtdb.firebaseio.com/messages.json";
 
 	
 	function send_msg($msg, $name) { 
@@ -38,5 +38,5 @@
         send_msg($user_msg, $params['sender']);
     }
 	//Redirects to relative chat page, whether it is client or admin
-	header('location: http://localhost/' . $params['sender'] .'_chat.php');
+	header('location: http://localhost/Voyage-Database-Project/Panel/' . $params['sender'] .'_chat.php');
 ?>
